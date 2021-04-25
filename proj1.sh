@@ -39,22 +39,17 @@ then
 	exit 1
 fi
 
-touch $2
-echo > $2
-
-
+# get the project directory and save
 projDir=$(pwd)
 
 cd ~
-dir=$(find / -type d -name "$(basename $1)" 2>/dev/null)
-#Check that directory exists
-if [ ! -d "$dir" ]
-then
-	echo "directory doesn't exist"
-	exit 1
-fi
+dir=$(pwd)
 
+# open the project directory again and create filetree.html
 cd $projDir
+touch $2
+# clear file to start from beginning
+echo > $2
 
 #creates header for html file
 echo "<!DOCTYPE html>" > $2
