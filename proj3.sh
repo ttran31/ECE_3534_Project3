@@ -112,7 +112,7 @@ function Op5 {
 	printf -- '-%.0s' {1..70}; echo ""
 
 	# print submenu information
-	last
+	last -4
 
 	# stay on submenu until user presses enter alone
 	while :
