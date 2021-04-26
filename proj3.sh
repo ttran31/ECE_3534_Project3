@@ -152,7 +152,8 @@ function Op7 {
 	printf -- '-%.0s' {1..70}; echo ""
 
 	# print submenu information
-	
+	df -h | awk '{if ($1 != "Filesystem") print $5 " " $6}'
+
 	# stay on submenu until user presses enter alone
 	while :
 	do
@@ -182,8 +183,9 @@ function Op9 {
 				ps -ef				
 			;;
 			2)
-				read -p "Please enter the PID of the process you would like to kil:\n" proc
-				kill $proc
+				printf "Please enter the PID of the process you would like to kill:\n"
+				read  proc
+				kill -9 $proc
 			;;
 			3)
 				top
@@ -192,7 +194,6 @@ function Op9 {
 				break
 		esac
 	done
-
 }
 while :
 do
